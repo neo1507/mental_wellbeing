@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindSpace – Student Mental Health Assistant</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- external stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!--  NAVIGATION BAR -->
+  <nav class="navbar">
+    <div class="nav-brand">🌿 MindSpace</div>
+    <ul class="nav-links">
+      <li><a href="#checkin">Check In</a></li>
+      <li><a href="#tips">Stress Tips</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#contacts">Help</a></li>
+    </ul>
+    <!-- Hamburger for mobile -->
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <!-- First thing-->
+  <section class="hero" id="home">
+    <div class="hero-bg-blob blob-1"></div>
+    <div class="hero-bg-blob blob-2"></div>
+    <div class="hero-content">
+      <span class="hero-tag">For Students, By Students</span>
+      <h1 class="hero-title">
+        Your mind matters.<br />
+        <em>Let's check in.</em>
+      </h1>
+      <p class="hero-subtitle">
+        A gentle space to track how you're feeling, get stress tips,
+        and find support — no judgment, no pressure.
+      </p>
+      <a href="#checkin" class="btn btn-primary">Check In With Yourself Today ↓</a>
+    </div>
+    <div class="hero-illustration" aria-hidden="true">
+      <div class="floating-card fc-1">😊 Feeling good today</div>
+      <div class="floating-card fc-2">💧 Drink some water</div>
+      <div class="floating-card fc-3">🌿 Take a breath</div>
+    </div>
+  </section>
+
+  <!-- How you feel -->
+  <section class="section" id="checkin">
+    <div class="container">
+      <div class="section-header">
+        <h2>Daily Mood Check-In</h2>
+        <p>How are you feeling right now? Tap your mood to log it.</p>
+        <div class="date-display" id="dateDisplay"></div>
+        <!--
+         filled by js
+        -->
+      </div>
+
+      <!-- Mood buttons -->
+      <div class="mood-grid" id="moodGrid">
+        <button class="mood-btn" data-mood="happy" data-label="Happy" aria-label="Log Happy mood">
+          <span class="mood-emoji">😊</span>
+          <span class="mood-label">Happy</span>
+        </button>
+        <button class="mood-btn" data-mood="neutral" data-label="Neutral" aria-label="Log Neutral mood">
+          <span class="mood-emoji">😐</span>
+          <span class="mood-label">Neutral</span>
+        </button>
+        <button class="mood-btn" data-mood="sad" data-label="Sad" aria-label="Log Sad mood">
+          <span class="mood-emoji">😔</span>
+          <span class="mood-label">Sad</span>
+        </button>
+        <button class="mood-btn" data-mood="stressed" data-label="Stressed" aria-label="Log Stressed mood">
+          <span class="mood-emoji">😣</span>
+          <span class="mood-label">Stressed</span>
+        </button>
+        <button class="mood-btn" data-mood="tired" data-label="Tired" aria-label="Log Tired mood">
+          <span class="mood-emoji">😴</span>
+          <span class="mood-label">Tired</span>
+        </button>
+      </div>
+
+      <!-- Encouragement message -->
+      <div class="encouragement-box" id="encouragementBox" aria-live="polite">
+
+      </div>
+
+      <!-- Mood History -->
+      <div class="mood-history-wrapper">
+        <div class="history-header">
+          <h3>Your Mood History</h3>
+          <button class="btn btn-ghost" id="clearHistoryBtn">Clear History</button>
+        </div>
+
+        <!-- Emoji Timeline -->
+        <div class="mood-timeline" id="moodTimeline">
+          <!-- filled by js -->
+        </div>
+
+        <!-- Text Log -->
+        <ul class="mood-log" id="moodLog" aria-label="Mood history list">
+          <!-- filed by js -->
+        </ul>
+
+        <!-- Empty state -->
+        <div class="empty-state" id="emptyState">
+          <p>No entries yet. Log your first mood above! 👆</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- picks a random tip from an array defined in script.js. -->
+  <section class="section section-tinted" id="tips">
+    <div class="container">
+      <div class="section-header">
+        <h2>Wellness Tips</h2>
+        <p>Need a quick nudge? Let us suggest something.</p>
+      </div>
+
+      <div class="tips-card">
+        <div class="tip-display" id="tipDisplay">
+          <!-- tip  appear -->
+          <span class="tip-placeholder">✨ Click below to get your tip</span>
+        </div>
+        <button class="btn btn-primary" id="tipBtn">Give Me a Stress Tip</button>
+      </div>
+
+      <!-- tips as passive cards -->
+      <div class="all-tips-grid" id="allTipsGrid">
+        <!-- filled by js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCE HUB -->
+  <section class="section" id="resources">
+    <div class="container">
+      <div class="section-header">
+        <h2>Resource Hub</h2>
+        <p>Tools and techniques to help manage stress and anxiety.</p>
+      </div>
+
+      <h3 class="sub-heading">Stress Relief Techniques</h3>
+      <div class="resource-grid">
+
+        <div class="resource-card">
+          <div class="resource-icon">🫁</div>
+          <h4>Deep Breathing</h4>
+          <p>Slow, intentional breathing activates your body's relaxation response. Try inhaling for 4 counts, holding
+            for 4, exhaling for 6.</p>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-icon">🍅</div>
+          <h4>Pomodoro Technique</h4>
+          <p>Work for 25 minutes, then take a 5-minute break. Repeat. This prevents burnout and keeps your brain fresh
+            throughout the day.</p>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-icon">🧘</div>
+          <h4>Mindfulness</h4>
+          <p>Spend 5 minutes focusing only on your senses — what you see, hear, feel. Anchoring yourself in the present
+            reduces anxiety.</p>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-icon">📓</div>
+          <h4>Journaling</h4>
+          <p>Writing down your thoughts externalises them, making them feel more manageable. Even 3 sentences a day can
+            help.</p>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-icon">🚶</div>
+          <h4>Short Walks</h4>
+          <p>A 10-minute walk boosts mood-regulating chemicals in your brain. Step outside — even a short loop around
+            campus helps.</p>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-icon">📵</div>
+          <h4>Screen Breaks</h4>
+          <p>Every 60 minutes, step away from your screen. Look at something 20 feet away for 20 seconds to reduce eye
+            strain and mental fatigue.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HELP & COUNSELING CONTACTS -->
+  <section class="section section-tinted" id="contacts">
+    <div class="container">
+      <div class="section-header">
+        <h2>You Are Not Alone</h2>
+        <p>Reach out. Real support is available.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <div class="contact-badge">On Campus</div>
+          <h4>Campus Counseling Center</h4>
+          <p>Free, confidential counseling for enrolled students. Individual sessions, group therapy, and crisis
+            walk-ins available.</p>
+          <div class="contact-info">
+            <span>📞 (555) 012-3456</span>
+            <span>📍 Student Services Building, Room 204</span>
+            <span>🕐 Mon–Fri, 9am–5pm</span>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-badge contact-badge--blue">Helpline</div>
+          <h4>Student Helpline</h4>
+          <p>24/7 confidential support line staffed by trained counselors. Call or text any time — day or night.</p>
+          <div class="contact-info">
+            <span>📞 1-800-STU-HELP</span>
+            <span>💬 Text "HELLO" to 741741</span>
+            <span>🕐 Available 24/7</span>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-badge contact-badge--green">Online</div>
+          <h4>Online Therapy Platforms</h4>
+          <p>Flexible, affordable therapy from your room. Many platforms offer student discounts and are covered by
+            student health insurance.</p>
+          <div class="contact-info">
+            <span>🌐 BetterHelp.com</span>
+            <span>🌐 Talkspace.com</span>
+            <span>🌐 7cups.com (free peer support)</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>🌿 MindSpace — Built with care for students everywhere.</p>
+      <p class="footer-note">This tool is for self-reflection only and is not a substitute for professional mental
+        health care.</p>
+    </div>
+  </footer>
+
+  <!-- link js file -->
+  <script src="script.js"></script>
+
+</body>
+
+</html>
